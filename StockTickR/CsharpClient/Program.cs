@@ -12,8 +12,9 @@ namespace CsharpClient
     {
         static async Task Main(string[] args)
         {
+            //作客户端订阅
             var connection = new HubConnectionBuilder()
-                .WithUrl("http://localhost:5000/stocks")
+                .WithUrl("https://localhost:52706/stocks")
                 .ConfigureLogging(logging =>
                 {
                     logging.AddConsole();

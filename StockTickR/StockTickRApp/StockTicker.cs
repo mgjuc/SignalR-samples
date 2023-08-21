@@ -169,8 +169,12 @@ namespace StockTickR
             }
 
             // Update the stock price by a random factor of the range percent
+            //Random(int Seed) 从一个种子生成随机数
             var random = new Random((int)Math.Floor(stock.Price));
-            var percentChange = random.NextDouble() * _rangePercent;
+            var percent = random.NextDouble();
+            //变化量
+            var percentChange = percent * _rangePercent;
+            //涨跌
             var pos = random.NextDouble() > 0.51;
             var change = Math.Round(stock.Price * (decimal)percentChange, 2);
             change = pos ? change : -change;

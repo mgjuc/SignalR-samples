@@ -53,6 +53,7 @@
                     console.log('connection started');
                     document.getElementById('sendmessage').addEventListener('click', function (event) {
                         // Call the Send method on the hub.
+                        //调用后端send方法
                         connection.invoke('send', name, messageInput.value);
 
                         // Clear text box and reset focus for next comment.

@@ -26,7 +26,7 @@
         var connection = new signalR.HubConnectionBuilder()
                                     .withUrl('/shapeHub')
                                     .build();
-
+        //监听后端调用
         connection.on('shapeMoved', function(x, y) {
             $shape.css({ left: x, top: y });
         });
@@ -34,6 +34,7 @@
         connection.start().then(
             $shape.draggable({
                 drag: function () {
+                    //shapeMoved后端方法
                     connection.invoke("MoveShape", this.offsetLeft, this.offsetTop || 0);
                 }
             })
